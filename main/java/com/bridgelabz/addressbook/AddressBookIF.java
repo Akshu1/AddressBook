@@ -6,5 +6,4 @@ public interface AddressBookIF {
     void deletePerson();
     void displayContents();
     void editPerson();
-
 }
