@@ -10,8 +10,12 @@ public class AddressBookSystem {
          * */
 
         System.out.println("Welcome to Address Book Program");
+        System.out.println("================================");
         Contacts.createContact();
+        System.out.println("================================");
         Contacts.editContact();
+        System.out.println("================================");
+        Contacts.deleteContact();
     }
 
 
@@ -20,6 +24,7 @@ public class AddressBookSystem {
          * taking input from console
          * **/
         static ArrayList<String> contacts = new ArrayList<String>(7);
+        static Scanner sc = new Scanner(System.in);
 
         static void createContact() {
             Scanner s = new Scanner(System.in);
@@ -34,7 +39,6 @@ public class AddressBookSystem {
             System.out.println(contacts);
         }
         static void editContact() {
-            Scanner sc = new Scanner(System.in);
             System.out.println(" ");
             System.out.println("Enter which detail you have to edit  : ");
             System.out.println("name or address or city or state or zip or phone or email  : ");
@@ -54,27 +58,27 @@ public class AddressBookSystem {
                     contacts.set(1, a);
                     break;
                 case "city" :
-                    System.out.println("Enter the name to edit  : ");
+                    System.out.println("Enter the city to edit  : ");
                     String city = sc.nextLine();
                     contacts.set(2, city);
                     break;
                 case "state" :
-                    System.out.println("Enter the name to edit  : ");
+                    System.out.println("Enter the state to edit  : ");
                     String state = sc.nextLine();
                     contacts.set(3, state);
                     break;
                 case "zip" :
-                    System.out.println("Enter the name to edit  : ");
+                    System.out.println("Enter the zip to edit  : ");
                     String zip = sc.nextLine();
                     contacts.set(4, zip);
                     break;
                 case "phone" :
-                    System.out.println("Enter the name to edit  : ");
+                    System.out.println("Enter the phone to edit  : ");
                     String phone = sc.nextLine();
                     contacts.set(5, phone);
                     break;
                 case "email" :
-                    System.out.println("Enter the name to edit  : ");
+                    System.out.println("Enter the email to edit  : ");
                     String email = sc.nextLine();
                     contacts.set(6, email);
                     break;
@@ -87,6 +91,27 @@ public class AddressBookSystem {
             System.out.println("edited contact details are :");
             System.out.println(contacts);
 
+        }
+
+
+        static void deleteContact() {
+
+            System.out.println(" ");
+            System.out.println("Enter the name of contact that have to delete  : ");
+            String nameToDelete = sc.nextLine();
+
+            /**deleting the added contact using Arraylist method **/
+
+            if(nameToDelete.equals(contacts.get(0))) {
+                contacts.removeAll(contacts);
+                System.out.println(" ");
+                System.out.println("**contact deleted successfully**");
+
+            } else {
+                System.out.println("No name found");
+            }
+
+            System.out.println(contacts);
         }
     }
 }
