@@ -70,6 +70,9 @@ public class AddressBook implements AddressBookIF {
             System.out.println("Enter Email: ");
             String email = scannerObject.next();
 
+            System.out.println("Enter Area where you reside: ");
+            String area = scannerObject.next();
+
             System.out.println("Enter City: ");
             String city = scannerObject.next();
 
