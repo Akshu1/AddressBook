@@ -187,7 +187,7 @@ public class AddressBook {
     public void sortAddressBook() {
         List<Contact> sortedContactList;
         System.out.println("On what basis you want to sort address book..");
-        System.out.println("1. First name");
+        System.out.println("1. First name\n 2. City\n 3. State\n 4. Zip Code");
         int sortingChoice = scanner.nextInt();
         switch (sortingChoice) {
             case 1:
@@ -196,6 +196,25 @@ public class AddressBook {
                         .collect(Collectors.toList());
                 printSortedList(sortedContactList);
                 break;
+            case 2:
+                sortedContactList = contactList.values().stream()
+                        .sorted((firstPerson, secondPerson) -> firstPerson.getCity().compareTo(secondPerson.getCity()))
+                        .collect(Collectors.toList());
+                printSortedList(sortedContactList);
+                break;
+            case 3:
+                sortedContactList = contactList.values().stream()
+                        .sorted((firstPerson, secondPerson) -> firstPerson.getState().compareTo(secondPerson.getState()))
+                        .collect(Collectors.toList());
+                printSortedList(sortedContactList);
+                break;
+            case 4:
+                sortedContactList = contactList.values().stream().sorted((firstPerson, secondPerson) -> Long
+                                .valueOf(firstPerson.getZip()).compareTo(Long.valueOf(secondPerson.getZip())))
+                        .collect(Collectors.toList());
+                printSortedList(sortedContactList);
+                break;
+
 
         }
     }

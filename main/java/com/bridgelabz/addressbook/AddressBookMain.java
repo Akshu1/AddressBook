@@ -138,9 +138,7 @@ public class AddressBookMain {
                             && person.getState().equals(stateName))
                     .forEach(person -> System.out.println(person));
         }
-
     }
-
     /*
      * Displaying person by his/her city or state
      */
@@ -155,8 +153,6 @@ public class AddressBookMain {
                                 || person.getCity().equals(regionName)))
                 .forEach(person -> person.forEach(personDetails -> System.out.println(personDetails)));
     }
-
-
     /*
      * in this method displaying addressBook name
      */
@@ -177,7 +173,6 @@ public class AddressBookMain {
 
         System.out.println("Enter the name of the region :");
         String regionName = sc.next();
-
         long countPeople = listToDisplay.values().stream()
                 .map(region -> region.stream().filter(person -> person.getState().equals(regionName)
                         || person.getCity().equals(regionName)))
